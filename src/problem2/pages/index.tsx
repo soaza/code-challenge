@@ -20,7 +20,10 @@ const Home: NextPage = () => {
       phone: undefined,
       otp: undefined,
     },
-    validate: {},
+    validate: {
+      amount: (value: number) =>
+        value > 0 ? null : "Amount need to be more than 0",
+    },
   });
 
   const router = useRouter();
@@ -39,6 +42,10 @@ const Home: NextPage = () => {
         style={{ display: "flex", flexDirection: "column", gap: 20 }}
         onSubmit={(e) => {
           e.preventDefault();
+          form.validate();
+          if (!form.isValid()) {
+            return;
+          }
 
           router.push({
             pathname: "/success/[transaction]",
