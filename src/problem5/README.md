@@ -1,13 +1,9 @@
-# Sample Hardhat Project
+# Problem 5: Utility Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## To test the contract
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+1. Install packages - `npm install`
+2. Start the HardHat server - `npx hardhat node`
+3. On a 2nd terminal, deploy contract -`npx hardhat run --network localhost scripts/deploy.js`, take note of the wallet address
+4. In test.js, Replace `ADDR` - the contract address variable, with the deployed address from Step 3.
+5. Run test script - `node test.js`

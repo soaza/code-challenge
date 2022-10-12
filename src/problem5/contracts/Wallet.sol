@@ -16,16 +16,12 @@ contract Wallet {
         Balance memory balance = Balance(9988887462734227,address(0x7D5119b27CC5e6d8A06B8EC90Bf11200A9b289F4));
         Wallets[address(0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9)].push(balance);
 
-        Balance memory balance2 = Balance(899998285714286,address(0x7D5119b27CC5e6d8A06B8EC90Bf11200A9b289F4));
-        Wallets[address(0xDAc3608AcA0a4FC0E10bC6A3A90535bC277D22a2)].push(balance2);
+        Balance memory balance2 = Balance(32131312121,address(0xDAc3608AcA0a4FC0E10bC6A3A90535bC277D22a2));
+        Wallets[address(0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9)].push(balance2);
     }
 
     function contains(address _address) private view returns (bool) {
-        if (Wallets[_address].length > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return Wallets[_address].length > 0;
     }
 
     function getBalances(
@@ -39,7 +35,7 @@ contract Wallet {
         for (uint256 i = 0; i < token_addresses.length; i++) {
             if (contains(wallet_address)) {
                 Balance[] memory balances = Wallets[wallet_address];
-                out_balances[c] = balances[0];
+                out_balances[c] = balances[c];
                 c ++;
             }
         }
