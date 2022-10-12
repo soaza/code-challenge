@@ -1,6 +1,6 @@
 const { ethers } = require("ethers");
 
-const ADDR = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"; // your contract address
+const ADDR = "0x5fbdb2315678afecb367f032d93f642f64180aa3"; // your contract address
 const ABI = [
   {
     inputs: [],
@@ -14,8 +14,13 @@ const ABI = [
         name: "",
         type: "address",
       },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    name: "Balances",
+    name: "Wallets",
     outputs: [
       {
         internalType: "uint256",
@@ -90,7 +95,7 @@ const TOKENS = [
 ];
 
 // you can use your own RPC provider url (no need to deploy to mainnet)
-const provider = ethers.providers.getDefaultProvider();
+const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
 
 const test = async () => {
   const contract = new ethers.Contract(ADDR, ABI, provider);

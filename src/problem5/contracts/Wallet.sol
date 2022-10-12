@@ -3,7 +3,7 @@ pragma solidity ^0.8.9;
 
 contract Wallet {
     address public owner = msg.sender;
-    uint256 constant BALANCES_SIZE = 10;
+    uint256 constant BALANCES_SIZE = 2;
 
     struct Balance {
         uint256 balance;
@@ -13,14 +13,11 @@ contract Wallet {
     mapping(address => Balance[]) public Wallets;
 
     constructor() {
-        for(uint256 i = 0;i < BALANCES_SIZE;i++){
-            address random_wallet_address = address(uint160(uint(keccak256(abi.encodePacked(blockhash(block.number))))));
-            address random_token_address = address(uint160(uint(keccak256(abi.encodePacked(blockhash(block.number))))));
+        Balance memory balance = Balance(9988887462734227,address(0x7D5119b27CC5e6d8A06B8EC90Bf11200A9b289F4));
+        Wallets[address(0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9)].push(balance);
 
-            Balance memory balance = Balance(0,random_token_address);
-            Wallets[random_wallet_address].push(balance);
-        }
-
+        Balance memory balance2 = Balance(899998285714286,address(0x7D5119b27CC5e6d8A06B8EC90Bf11200A9b289F4));
+        Wallets[address(0xDAc3608AcA0a4FC0E10bC6A3A90535bC277D22a2)].push(balance2);
     }
 
     function contains(address _address) private view returns (bool) {
