@@ -102,7 +102,7 @@ const Home: NextPage = () => {
         />
 
         <Group position="right" mt="md">
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Send Tokens</Button>
         </Group>
       </form>
     </Box>
