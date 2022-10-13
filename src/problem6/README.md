@@ -31,7 +31,7 @@ On broadcast, it maintains 2 things:
 
 As we expect a response of 30s for majority of the transactions, we can assume that the transaction has failed if the RPC request does not returns a response within 30s.
 
-Upon failure of a transaction determined by a returned failure code or a timeout of 30s, we retry the transaction if the retries*count of the specific transaction to a blockchain node is below 5 ( \_We assume that 5 retries is a sufficiently good number to determine a failed transaction* ), if the retries_count exceed 5, we add the transaction the list of failed transaction and abort it.
+Upon failure of a transaction determined by a returned failure code or a timeout of 30s, we retry the transaction if the `retries_count` of the specific transaction to a blockchain node is below 5 ( _We assume that 5 retries is a sufficiently good number to determine a failed transaction_ ), if the retries_count exceed 5, we add the transaction the list of failed transaction and abort it.
 
 Upon success of a transaction determined by a returned success code, we add the transaction to the list of successful transaction.
 
